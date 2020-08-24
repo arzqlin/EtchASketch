@@ -11,7 +11,9 @@ function drawGrid(gridNumber, gridSize){
             cell.setAttribute('style', `height: ${cellSize}px; width: ${cellSize}px`);
 
             cell.addEventListener("mouseover", (e) => {
-                e.target.style.backgroundColor = "yellow";
+                var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
+                e.target.style.backgroundColor = "#" + randomColor;
             });
             row.appendChild(cell);
         }
@@ -26,6 +28,11 @@ const gridSize = 960;
 drawGrid(gridNumber, gridSize);
 document.getElementById("ChangeResolutionBtn").addEventListener("click",()=> {
     gridNumber = prompt("please input desired resolution");
+    document.getElementById("container").innerHTML = "";
+    drawGrid(gridNumber, gridSize);
+})
+
+document.getElementById("ResetBtn").addEventListener("click", () => {
     document.getElementById("container").innerHTML = "";
     drawGrid(gridNumber, gridSize);
 })
