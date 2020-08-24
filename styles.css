@@ -1,0 +1,12 @@
+.cell {
+    float: left;
+}
+
+.row {
+    width : 960px;
+}
+
+.inner-border {
+    border : 1px solid lightgrey;
+    box-sizing: border-box;
+}
