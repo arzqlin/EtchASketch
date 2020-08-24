@@ -8,7 +8,6 @@ function drawGrid(gridNumber, gridSize){
             var cell = document.createElement("div");
             
             cell.setAttribute("class", "cell inner-border");
-            cell.textContent = i;
             cell.setAttribute('style', `height: ${cellSize}px; width: ${cellSize}px`);
 
             cell.addEventListener("mouseover", (e) => {
@@ -25,3 +24,8 @@ function drawGrid(gridNumber, gridSize){
 var gridNumber = 16;
 const gridSize = 960;
 drawGrid(gridNumber, gridSize);
+document.getElementById("ChangeResolutionBtn").addEventListener("click",()=> {
+    gridNumber = prompt("please input desired resolution");
+    document.getElementById("container").innerHTML = "";
+    drawGrid(gridNumber, gridSize);
+})
