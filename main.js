@@ -8,12 +8,15 @@ function drawGrid(gridNumber, gridSize){
             var cell = document.createElement("div");
             
             cell.setAttribute("class", "cell inner-border");
-            cell.setAttribute('style', `height: ${cellSize}px; width: ${cellSize}px; opacity : 0`);
+            cell.setAttribute('style', `height: ${cellSize}px; width: ${cellSize}px; opacity : 0; background-color : white`);
 
             cell.addEventListener("mouseover", (e) => {
                 var randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-                e.target.style.backgroundColor = "#" + randomColor;
+                if (e.target.style.backgroundColor === "white"){
+                    e.target.style.backgroundColor = "#" + randomColor;
+                }
+                
                 e.target.style.opacity = e.target.computedStyleMap().get("opacity").value + 0.1;
             });
             row.appendChild(cell);
